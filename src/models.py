@@ -2,7 +2,9 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 # crear cada modelo con una generacion serian 3 
-# crear relacion de cada
+# faltaria probar con postman 
+# falta crear grandparents
+# falta comprobar las relaciones
 
 class Current(db.Model):
     id = db.Column(db.Integer, primary_key=True)
