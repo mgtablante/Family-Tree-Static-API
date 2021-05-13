@@ -8,7 +8,7 @@ from flask_swagger import swagger
 from flask_cors import CORS
 from utils import APIException, generate_sitemap
 from admin import setup_admin
-from models import db, Current, Parent, GrandParent
+from models import db, Current, Parent, Grand_parent
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
@@ -42,23 +42,23 @@ def get_all_current():
 @app.route('/parent', methods=['GET'])
 def get_all_parent():    
     all_parent = Parent.query.all()
-    Parents = []
-    for Parent in all_Parent:
-        print(Parent.serialize())
-        Parents.append(Parent.serialize())
+    parents = []
+    for parent in all_parent:
+        print(parent.serialize())
+        parents.append(parent.serialize())
 
     return jsonify(parents), 200    
 
 
-# @app.route('/GrandParent', methods=['GET'])
-# def get_all_current():    
-#     all_grandParent = GrandParent.query.all()
-#     GrandParents = []
-#     for Parent in all_GrandParent:
-#         print(GrandParents.serialize())
-#         GrandParents.append(GrandParent.serialize())
+@app.route('/grand_parent', methods=['GET'])
+def get_all_grand_parent():    
+    all_grand_parent = Grand_parent.query.all()
+    grand_parents = []
+    for grand_parent in all_grand_parent:
+        print(grand_parent.serialize())
+        grand_parents.append(grand_parent.serialize())
 
-#     return jsonify(Grand_parents), 200   
+    return jsonify(grand_parents), 200   
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
